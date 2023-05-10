@@ -17,7 +17,7 @@ export interface IProductDetails {
   product: IProduct;
 }
 
-export interface ProductData {
+export interface TypeProductData {
   name: string;
   price: number;
   description?: string;
@@ -32,7 +32,7 @@ export enum EnumProductSort {
   OLDEST = 'oldest',
 }
 
-export type TypeDataFilters = {
+export type TypeProductDataFilters = {
   sort?: EnumProductSort;
   searchTerm?: string;
   page?: string | number;
