@@ -1,10 +1,22 @@
 import { getContentType } from '../../src/api/api.helper';
-import { IAuthResponse } from '../../store/user/user.interface';
+import { instance } from '../../src/api/api.interceptor';
+import { IAuthResponse, IEmailPassword } from '../../store/user/user.interface';
 import { saveToStorage } from './auth.helper';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
 export const AuthService = {
+  async main(type: 'login' | 'register', data: IEmailPassword) {
+    const response = await axios<IAuthResponse>({
+      url: `/auth/${type}`,
+      method: 'POST',
+      data,
+    });
+    if (response.data.accessToken) saveToStorage(response.data);
+
+    return response.data;
+  },
+
   async getNewTokens() {
     const refreshToken = Cookies.get('refresh-token');
 
