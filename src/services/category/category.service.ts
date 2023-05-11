@@ -1,5 +1,5 @@
-import { instance } from '../../src/api/api.interceptor';
-import { ICategory } from '../../src/types/category.interface';
+import { instance } from '../../api/api.interceptor';
+import { ICategory } from '../../types/category.interface';
 
 const CATEGORIES = 'categories';
 

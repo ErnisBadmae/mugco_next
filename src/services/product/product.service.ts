@@ -1,9 +1,9 @@
-import { instance } from '../../src/api/api.interceptor';
+import { instance } from '../../api/api.interceptor';
 import {
   IProduct,
   TypeProductData,
   TypeProductDataFilters,
-} from '../../src/types/product.interface';
+} from '../../types/product.interface';
 
 const PRODUCT = 'product';
 

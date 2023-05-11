@@ -1,5 +1,5 @@
-import { instance } from '../../src/api/api.interceptor';
-import { StatisticResponse } from '../../src/types/statistic.interface';
+import { instance } from '../../api/api.interceptor';
+import { StatisticResponse } from '../../types/statistic.interface';
 
 const STATISTICS = 'statistics';
 

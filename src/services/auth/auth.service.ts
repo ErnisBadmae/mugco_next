@@ -1,5 +1,5 @@
-import { getContentType } from '../../src/api/api.helper';
-import { instance } from '../../src/api/api.interceptor';
+import { getContentType } from '../../api/api.helper';
+import { instance } from '../../api/api.interceptor';
 import { IAuthResponse, IEmailPassword } from '../../store/user/user.interface';
 import { saveToStorage } from './auth.helper';
 import axios from 'axios';

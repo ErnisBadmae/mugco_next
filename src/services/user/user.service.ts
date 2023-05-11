@@ -1,6 +1,6 @@
-import { instance } from '../../src/api/api.interceptor';
-import { ICategory } from '../../src/types/category.interface';
-import { IUser } from '../../src/types/user.interface';
+import { instance } from '../../api/api.interceptor';
+import { ICategory } from '../../types/category.interface';
+import { IUser } from '../../types/user.interface';
 
 const USERS = 'users';
 

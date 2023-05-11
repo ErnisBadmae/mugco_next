@@ -1,5 +1,5 @@
-import { instance } from '../../src/api/api.interceptor';
-import { IReview } from '../../src/types/review.interface';
+import { instance } from '../../api/api.interceptor';
+import { IReview } from '../../types/review.interface';
 
 const REVIEWS = 'reviews';
 

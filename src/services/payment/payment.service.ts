@@ -1,5 +1,5 @@
-import { instance } from '../../src/api/api.interceptor';
-import { IPaymentResponse } from '../../src/types/payment.interface';
+import { instance } from '../../api/api.interceptor';
+import { IPaymentResponse } from '../../types/payment.interface';
 
 const PAYMENT = 'payment';
 

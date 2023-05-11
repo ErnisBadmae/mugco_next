@@ -1,5 +1,5 @@
-import { instance } from '../../src/api/api.interceptor';
-import { IOrder } from '../../src/types/order.interface';
+import { instance } from '../../api/api.interceptor';
+import { IOrder } from '../../types/order.interface';
 
 const ORDERS = 'orders';
 
