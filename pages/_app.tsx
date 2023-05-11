@@ -1,3 +1,5 @@
+import AuthProvider from '../src/providers/auth-provider/AuthProvider';
+import { TypeComponentAuthFields } from '../src/providers/auth-provider/auth-page.types';
 import { persistor, store } from '../src/store/store';
 import '@/assets/styles/globals.css';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -13,12 +15,17 @@ const queryClient = new QueryClient({
   },
 });
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({
+  Component,
+  pageProps,
+}: AppProps & TypeComponentAuthFields) {
   return (
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-          <Component {...pageProps} />
+          <AuthProvider Component={{ isOnlyUser: Component.isOnlyUser }}>
+            <Component {...pageProps} />
+          </AuthProvider>
         </PersistGate>
       </Provider>
     </QueryClientProvider>

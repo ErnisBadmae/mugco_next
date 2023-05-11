@@ -8,9 +8,11 @@ import {
   PURGE,
   REGISTER,
   REHYDRATE,
+  persistReducer,
+  persistStore,
 } from 'redux-persist';
-import persistReducer from 'redux-persist/es/persistReducer';
-import persistStore from 'redux-persist/es/persistStore';
+// import persistReducer from 'redux-persist/es/persistReducer';
+// import persistStore from 'redux-persist/es/persistStore';
 import storage from 'redux-persist/lib/storage';
 
 const persistConfig = {
