@@ -1,8 +1,15 @@
-import Meta from '../../ui/meta/Meta';
-import { FC } from 'react';
+import { FC } from 'react'
+
+import Button from '../../ui/button/Button'
+import Meta from '../../ui/meta/Meta'
 
 const Auth: FC = () => {
-  return <Meta title='Auth'>Auth </Meta>;
-};
+	console.log('test')
+	return (
+		<Meta title='Auth'>
+			<Button variant='orange'>Auth</Button>
+		</Meta>
+	)
+}
 
-export default Auth;
+export default Auth

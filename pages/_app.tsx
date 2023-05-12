@@ -1,7 +1,7 @@
 import AuthProvider from '../src/providers/auth-provider/AuthProvider';
 import { TypeComponentAuthFields } from '../src/providers/auth-provider/auth-page.types';
 import { persistor, store } from '../src/store/store';
-import '@/assets/styles/globals.css';
+import '@/assets/styles/globals.scss';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import type { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
