@@ -1,7 +1,9 @@
-import { NextPage } from 'next';
+import { NextPage } from 'next'
+
+import Home from '../src/components/screens/home/Home'
 
 const HomePage: NextPage = () => {
-  return <h1 className='text-3xl font-bold underline'>Hello world!</h1>;
-};
+	return <Home />
+}
 
-export default HomePage;
+export default HomePage

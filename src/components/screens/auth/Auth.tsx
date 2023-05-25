@@ -7,11 +7,14 @@ import { IEmailPassword } from '../../../store/user/user.interface'
 import Button from '../../ui/button/Button'
 import Heading from '../../ui/heading/Heading'
 import Field from '../../ui/input/Field'
+import Loader from '../../ui/loader/Loader'
 import Meta from '../../ui/meta/Meta'
 
+import { useAuthRedirect } from './useAuthRedirect'
 import { validEmail } from './valid-email'
 
 const Auth: FC = () => {
+	useAuthRedirect()
 	const { isLoading } = useAuth()
 	const { login, register } = useActions()
 	const [type, setType] = useState<'login' | 'register'>('login')
@@ -28,7 +31,7 @@ const Auth: FC = () => {
 	const onSubmit: SubmitHandler<IEmailPassword> = data => {
 		if (type === 'login') login(data)
 		else register(data)
-		console.log('data', data)
+
 		reset()
 	}
 
@@ -40,6 +43,7 @@ const Auth: FC = () => {
 					onSubmit={handleSubmit(onSubmit)}
 				>
 					<Heading className='capitalize text-center mb-4'>{type}</Heading>
+					{isLoading ? <Loader /> : <></>}
 					<Field
 						{...formRegister('email', {
 							required: 'Email is required',
@@ -64,7 +68,18 @@ const Auth: FC = () => {
 						placeholder='password'
 						error={errors.password?.message}
 					/>
-					<Button variant='orange'>Go!</Button>
+					<Button type='submit' variant='orange'>
+						Go!
+					</Button>
+					<div>
+						<button
+							type='button'
+							className='inline-block opacity-20 mt-3 text-sm'
+							onClick={() => setType(type === 'login' ? 'register' : 'login')}
+						>
+							{type === 'login' ? 'Register' : 'Login'}
+						</button>
+					</div>
 				</form>
 			</section>
 		</Meta>
