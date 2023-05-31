@@ -39,3 +39,7 @@ export type TypeProductDataFilters = {
 	page?: string | number
 	perPage?: string | number
 }
+
+export type TypeProducts = {
+	products: IProduct[]
+}

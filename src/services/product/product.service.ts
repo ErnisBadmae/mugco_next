@@ -1,68 +1,74 @@
-import { instance } from '../../api/api.interceptor';
+import { instance } from '../../api/api.interceptor'
 import {
-  IProduct,
-  TypeProductData,
-  TypeProductDataFilters,
-} from '../../types/product.interface';
+	IProduct,
+	TypeProductData,
+	TypeProductDataFilters
+} from '../../types/product.interface'
 
-const PRODUCT = 'product';
+const PRODUCTS = 'products'
 
 export const ProductService = {
-  async getAll(queryData = {} as TypeProductDataFilters) {
-    return instance<IProduct[]>({
-      url: PRODUCT,
-      method: 'GET',
-      params: queryData,
-    });
-  },
+	async getAll(queryData = {} as TypeProductDataFilters) {
+		return instance<IProduct[]>({
+			url: PRODUCTS,
+			method: 'GET',
+			params: queryData
+		})
+	},
 
-  async getSimilar(productId: string | number) {
-    return instance<IProduct[]>({
-      url: `${PRODUCT}/similar/${productId}`,
-      method: 'GET',
-    });
-  },
+	async getSimilar(productId: string | number) {
+		return instance<IProduct[]>({
+			url: `${PRODUCTS}/similar/${productId}`,
+			method: 'GET'
+		})
+	},
 
-  async getBySlug(slug: string) {
-    return instance<IProduct>({
-      url: `${PRODUCT}/by-slug/${slug}`,
-      method: 'GET',
-    });
-  },
+	async getBySlug(slug: string) {
+		return instance<IProduct>({
+			url: `${PRODUCTS}/by-slug/${slug}`,
+			method: 'GET'
+		})
+	},
 
-  async getByCategory(categorySlug: string) {
-    return instance<IProduct[]>({
-      url: `${PRODUCT}/by-category/${categorySlug}`,
-      method: 'GET',
-    });
-  },
+	async getByCategory(categorySlug: string) {
+		return instance<IProduct[]>({
+			url: `${PRODUCTS}/by-category/${categorySlug}`,
+			method: 'GET'
+		})
+	},
 
-  async getById(id: string | number) {
-    return instance<IProduct[]>({
-      url: `${PRODUCT}/${id}`,
-      method: 'GET',
-    });
-  },
+	async getByCategoryId(categorySlug: string) {
+		return instance<IProduct[]>({
+			url: `${PRODUCTS}/by-category/${categorySlug}`
+		})
+	},
 
-  async create() {
-    return instance<IProduct>({
-      url: PRODUCT,
-      method: 'POST',
-    });
-  },
+	async getById(id: string | number) {
+		return instance<IProduct[]>({
+			url: `${PRODUCTS}/${id}`,
+			method: 'GET'
+		})
+	},
 
-  async update(id: number | string, data: TypeProductData) {
-    return instance<IProduct>({
-      url: `${PRODUCT}/${id}`,
-      method: 'PUT',
-      data,
-    });
-  },
+	async create() {
+		return instance<IProduct>({
+			url: PRODUCTS,
+			method: 'POST'
+		})
+	},
 
-  async delete(id: number | string) {
-    return instance<IProduct>({
-      url: `${PRODUCT}/${id}`,
-      method: 'DELETE',
-    });
-  },
-};
+	async update(id: number | string, data: TypeProductData) {
+		return instance<IProduct>({
+			url: `${PRODUCTS}/${id}`,
+			method: 'PUT',
+			data
+		})
+	},
+
+	async delete(id: number | string) {
+		return instance<IProduct>({
+			url: `${PRODUCTS}/${id}`,
+			method: 'DELETE'
+		})
+	}
+}
