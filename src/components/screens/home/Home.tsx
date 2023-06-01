@@ -1,11 +1,11 @@
-import { FC, PropsWithChildren } from 'react'
+import { FC } from 'react'
 
-import { TypeProducts } from '../../../types/product.interface'
+import { TypePaginationProducts } from '../../../types/product.interface'
 import Catalog from '../../ui/catalog/Catalog'
 import Heading from '../../ui/heading/Heading'
 import Meta from '../../ui/meta/Meta'
 
-const Home: FC<TypeProducts> = ({ products }) => {
+const Home: FC<TypePaginationProducts> = ({ products, length }) => {
 	return (
 		<Meta title='Home'>
 			<Heading>Hello world</Heading>

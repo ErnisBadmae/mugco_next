@@ -1,6 +1,7 @@
 import { instance } from '../../api/api.interceptor'
 import {
 	IProduct,
+	TypePaginationProducts,
 	TypeProductData,
 	TypeProductDataFilters
 } from '../../types/product.interface'
@@ -9,7 +10,7 @@ const PRODUCTS = 'products'
 
 export const ProductService = {
 	async getAll(queryData = {} as TypeProductDataFilters) {
-		return instance<IProduct[]>({
+		return instance<TypePaginationProducts>({
 			url: PRODUCTS,
 			method: 'GET',
 			params: queryData
