@@ -1,5 +1,4 @@
 import { instance } from '../../api/api.interceptor'
-import { ICategory } from '../../types/category.interface'
 import { IFullUser, IUser } from '../../types/user.interface'
 
 const USERS = 'users'
