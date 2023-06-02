@@ -2,20 +2,19 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { FC } from 'react'
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai'
 
-import { useAuth } from '../../../../hooks/useAuth'
 import { useProfile } from '../../../../hooks/useProfile'
 import { UserService } from '../../../../services/user/user.service'
 
 const FavoriteButton: FC<{ productId: number }> = ({ productId }) => {
 	const { profile } = useProfile()
 
-	const { invalidateQueries } = useQueryClient()
+	const queryClient = useQueryClient()
 	const { mutate } = useMutation(
 		['toggle favorite'],
 		() => UserService.toggleFavorite(productId),
 		{
 			onSuccess() {
-				invalidateQueries(['get profile'])
+				queryClient.invalidateQueries(['get profile'])
 			}
 		}
 	)
@@ -24,7 +23,7 @@ const FavoriteButton: FC<{ productId: number }> = ({ productId }) => {
 	const isExists = profile.favorites.some(favorite => favorite.id === productId)
 	return (
 		<div>
-			<button onClick={() => mutate()}>
+			<button onClick={() => mutate()} className='text-primary'>
 				{isExists ? <AiFillHeart /> : <AiOutlineHeart />}
 			</button>
 		</div>

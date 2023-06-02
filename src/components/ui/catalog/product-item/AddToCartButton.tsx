@@ -7,15 +7,21 @@ import { ICartItem } from '../../../../types/cart.interface'
 import { IProduct } from '../../../../types/product.interface'
 
 const AddToCartButton: FC<{ product: IProduct }> = ({ product }) => {
+	console.log('product', product)
 	const { addToCart, removeFromCart } = useActions()
 	const { items } = useCart()
 
-	const currentElement = items.find(
-		(cartItem: ICartItem) => cartItem.product.id === product.id
-	)
+	console.log('items', items)
+
+	const currentElement = items.find((cartItem: ICartItem) => {
+		console.log('cartItem', cartItem.product.id)
+		cartItem.product.id === product.id
+	})
+	// console.log('currentElement', currentElement)
 	return (
 		<div>
 			<button
+				className='text-secondary'
 				onClick={() =>
 					currentElement
 						? removeFromCart(currentElement.id)

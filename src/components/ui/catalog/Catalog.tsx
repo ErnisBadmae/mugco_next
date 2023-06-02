@@ -18,11 +18,13 @@ const Catalog: FC<ICatalogProps> = props => {
 	if (isLoading) return <Loader />
 	return (
 		<section>
-			{title && <Heading>{title}</Heading>}
+			{title && <Heading className='mb-2'>{title}</Heading>}
 			{products.length ? (
-				products.map(product => (
-					<ProductItem product={product} key={product.id} />
-				))
+				<div className='grid grid-cols-4 gap-10 p-12'>
+					{products.map(product => (
+						<ProductItem product={product} key={product.id} />
+					))}
+				</div>
 			) : (
 				<div>There are no products</div>
 			)}

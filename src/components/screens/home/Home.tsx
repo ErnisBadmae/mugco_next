@@ -4,6 +4,7 @@ import { useActions } from '../../../hooks/useActions'
 import { useAuth } from '../../../hooks/useAuth'
 import { TypePaginationProducts } from '../../../types/product.interface'
 import Catalog from '../../ui/catalog/Catalog'
+import Layout from '../../ui/layout/Layout'
 import Meta from '../../ui/meta/Meta'
 
 const Home: FC<TypePaginationProducts> = ({ products, length }) => {
@@ -11,10 +12,12 @@ const Home: FC<TypePaginationProducts> = ({ products, length }) => {
 	const { logout } = useActions()
 
 	return (
-		<Meta title='Home'>
-			{!!user && <button onClick={() => logout()}>Logout</button>}
-			<Catalog title='Freshed products' products={products || []} />
-		</Meta>
+		<Layout>
+			<Meta title='Home'>
+				{!!user && <button onClick={() => logout()}>Logout</button>}
+				<Catalog title='Freshed products' products={products || []} />
+			</Meta>
+		</Layout>
 	)
 }
 
