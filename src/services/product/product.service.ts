@@ -10,11 +10,12 @@ const PRODUCTS = 'products'
 
 export const ProductService = {
 	async getAll(queryData = {} as TypeProductDataFilters) {
-		return instance<TypePaginationProducts>({
+		const { data } = await instance<TypePaginationProducts>({
 			url: PRODUCTS,
 			method: 'GET',
 			params: queryData
 		})
+		return data
 	},
 
 	async getSimilar(productId: string | number) {

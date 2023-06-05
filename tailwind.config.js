@@ -21,6 +21,10 @@ module.exports = {
 			fontSize: {
 				xs: '0.82rem',
 				base: '1.15rem'
+			},
+			animation: {
+				'scale-in': 'scaleIn 1s ease-in-out',
+				'opacity-animation': 'animationOpacity 1s ease-in-out'
 			}
 		},
 		keyframes: {

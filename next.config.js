@@ -4,7 +4,9 @@ const nextConfig = {
 	env: {
 		SERVER_URL: process.env.SERVER_URL
 	},
-	images: { domains: ['loremflickr.com', 'picsum.photos'] }
+	images: {
+		domains: ['loremflickr.com', 'picsum.photos', 'cloudflare-ipfs.com']
+	}
 }
 
 module.exports = nextConfig
