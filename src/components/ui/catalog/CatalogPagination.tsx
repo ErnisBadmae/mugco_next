@@ -26,7 +26,7 @@ const CatalogPagination: FC<ICatalogPaginationProps> = props => {
 		EnumProductSort.NEWEST
 	)
 	const { data: response, isLoading } = useQuery(
-		['products', sortType],
+		['products', sortType, page],
 		() =>
 			ProductService.getAll({
 				page,
@@ -34,7 +34,8 @@ const CatalogPagination: FC<ICatalogPaginationProps> = props => {
 				sort: sortType
 			}),
 		{
-			initialData: data
+			initialData: data,
+			keepPreviousData: true
 		}
 	)
 
@@ -53,13 +54,19 @@ const CatalogPagination: FC<ICatalogPaginationProps> = props => {
 							))}
 						</div>
 						<div className='text-center mt-16'>
-							<Button
-								variant='orange'
-								size='sma'
-								onClick={() => setPage(page + 1)}
-							>
-								Load more
-							</Button>
+							{Array.from({ length: response.length / 4 }).map((_, index) => {
+								const pageNumber = index + 1
+								return (
+									<Button
+										variant={page === pageNumber ? 'orange' : 'white'}
+										size='sma'
+										className='mx-3'
+										onClick={() => setPage(pageNumber)}
+									>
+										{pageNumber}
+									</Button>
+								)
+							})}
 						</div>
 					</>
 				) : (
