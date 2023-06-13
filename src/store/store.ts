@@ -6,7 +6,6 @@ import {
 	PURGE,
 	REGISTER,
 	REHYDRATE,
-	persistReducer,
 	persistStore
 } from 'redux-persist'
 
