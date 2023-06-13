@@ -1,22 +1,18 @@
+'use client'
+
 import Cookies from 'js-cookie'
-import dynamic from 'next/dynamic'
-import { useRouter } from 'next/router'
+import { usePathname } from 'next/navigation'
 import { FC, PropsWithChildren, useEffect } from 'react'
 
+import { REFRESH_TOKEN } from '../../constants/token.constants'
 import { useActions } from '../../hooks/useActions'
 import { useAuth } from '../../hooks/useAuth'
 import { getAccessToken } from '../../services/auth/auth.helper'
 
-import { TypeComponentAuthFields } from './auth-page.types'
-
-const DynamicCheckRole = dynamic(() => import('./CheckRole'), { ssr: false })
-const AuthProvider: FC<PropsWithChildren<TypeComponentAuthFields>> = ({
-	Component: { isOnlyUser },
-	children
-}) => {
+const AuthProvider: FC<PropsWithChildren<unknown>> = ({ children }) => {
 	const { user } = useAuth()
 	const { checkAuth, logout } = useActions()
-	const { pathname } = useRouter()
+	const pathname = usePathname()
 
 	useEffect(() => {
 		const accessToken = getAccessToken()
@@ -25,7 +21,7 @@ const AuthProvider: FC<PropsWithChildren<TypeComponentAuthFields>> = ({
 	}, [])
 
 	useEffect(() => {
-		const refreshToken = Cookies.get('refreshToken')
+		const refreshToken = Cookies.get(REFRESH_TOKEN)
 		if (!refreshToken && user) logout()
 	}, [pathname])
 
