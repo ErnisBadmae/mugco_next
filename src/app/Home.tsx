@@ -2,12 +2,11 @@
 
 import { FC } from 'react'
 
-import { useActions } from '../../../hooks/useActions'
-import { useAuth } from '../../../hooks/useAuth'
-import { TypePaginationProducts } from '../../../types/product.interface'
-import CatalogPagination from '../../ui/catalog/CatalogPagination'
-import Layout from '../../ui/layout/Layout'
-import Meta from '../../ui/meta/Meta'
+import CatalogPagination from '../components/ui/catalog/CatalogPagination'
+import Layout from '../components/ui/layout/Layout'
+import { useActions } from '../hooks/useActions'
+import { useAuth } from '../hooks/useAuth'
+import { TypePaginationProducts } from '../types/product.interface'
 
 const Home: FC<TypePaginationProducts> = ({ products, length }) => {
 	const { user } = useAuth()

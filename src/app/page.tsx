@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 
-import Home from '../components/screens/home/Home'
 import { ProductService } from '../services/product/product.service'
+
+import Home from './Home'
 
 export const metadata: Metadata = {
 	description: 'Handmade ceramics for the gifts'
