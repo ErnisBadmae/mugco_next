@@ -1,3 +1,5 @@
+'use client'
+
 import { FC } from 'react'
 
 import { useActions } from '../../../hooks/useActions'
@@ -13,13 +15,8 @@ const Home: FC<TypePaginationProducts> = ({ products, length }) => {
 
 	return (
 		<Layout>
-			<Meta title='Home'>
-				{!!user && <button onClick={() => logout()}>Logout</button>}
-				<CatalogPagination
-					title='Freshed products'
-					data={{ products, length }}
-				/>
-			</Meta>
+			{!!user && <button onClick={() => logout()}>Logout</button>}
+			<CatalogPagination title='Freshed products' data={{ products, length }} />
 		</Layout>
 	)
 }
