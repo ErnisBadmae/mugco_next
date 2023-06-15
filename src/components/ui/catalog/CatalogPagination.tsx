@@ -62,6 +62,7 @@ const CatalogPagination: FC<ICatalogPaginationProps> = props => {
 										size='sma'
 										className='mx-3'
 										onClick={() => setPage(pageNumber)}
+										key={pageNumber}
 									>
 										{pageNumber}
 									</Button>

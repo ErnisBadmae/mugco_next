@@ -24,3 +24,5 @@ const CartActions: FC<{ item: ICartItem }> = ({ item }) => {
 		</div>
 	)
 }
+
+export default CartActions

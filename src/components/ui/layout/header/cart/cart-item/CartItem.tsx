@@ -3,6 +3,7 @@ import { FC } from 'react'
 
 import { ICartItem } from '../../../../../../types/cart.interface'
 import { convertPrice } from '../../../../../../utils/convertPrice'
+import CartActions from '../cart-actions/CartActions'
 
 const CartItem: FC<{ item: ICartItem }> = ({ item }) => {
 	return (
@@ -22,3 +23,5 @@ const CartItem: FC<{ item: ICartItem }> = ({ item }) => {
 		</div>
 	)
 }
+
+export default CartItem

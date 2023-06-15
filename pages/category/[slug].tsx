@@ -1,9 +1,12 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 
+import Layout from '../../src/components/ui/layout/Layout'
 import { CategoryService } from '../../src/services/category/category.service'
 import { ProductService } from '../../src/services/product/product.service'
 import { ICategory } from '../../src/types/category.interface'
 import { IProduct } from '../../src/types/product.interface'
+
+// import CatalogPagination from '../../src/components/ui/catalog/CatalogPagination'
 
 const CategoryPage: NextPage<{
 	products: IProduct[]
@@ -11,7 +14,7 @@ const CategoryPage: NextPage<{
 }> = ({ products, category }) => {
 	return (
 		<Layout>
-			<Catalog products={products || []} title={category.name} />
+			{/* <CatalogPagination products={products || []} title={category.name} /> */}
 		</Layout>
 	)
 }

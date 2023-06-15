@@ -1,7 +1,8 @@
-import CatalogPagination from '../src/components/ui/catalog/CatalogPagination'
+import Catalog from '../src/components/ui/catalog/Catalog'
+import Layout from '../src/components/ui/layout/Layout'
 import { useProfile } from '../src/hooks/useProfile'
 
-const FavoritesPage: NextPageAuth = () => {
+const FavoritesPage = () => {
 	const { profile } = useProfile()
 
 	return (
