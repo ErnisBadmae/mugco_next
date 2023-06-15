@@ -1,3 +1,15 @@
 import { useTypedSelector } from './useTypedSelector'
 
-export const useCart = () => useTypedSelector(state => state.cart)
+export const useCart = () => {
+	const items = useTypedSelector(state => state.cart.items)
+
+	const total = items.reduce(
+		(acc: number, item: any) => acc + item.price * item.quantity,
+		0
+	)
+
+	return {
+		items,
+		total
+	}
+}
