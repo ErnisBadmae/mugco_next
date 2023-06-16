@@ -2,13 +2,13 @@ import type { Metadata } from 'next'
 
 import { NO_INDEX_PAGE } from '../../../constants/app.constants'
 
-import Favorites from './Favorites'
+import MyOrders from './MyOrders'
 
 export const metadata: Metadata = {
-	title: 'Favorites',
+	title: 'My orders',
 	...NO_INDEX_PAGE
 }
 
-export default function FavoritesPage() {
-	return <Favorites />
+export default function MyOrdersPage() {
+	return <MyOrders />
 }
