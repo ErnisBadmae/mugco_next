@@ -6,6 +6,14 @@ const nextConfig = {
 	},
 	images: {
 		domains: ['loremflickr.com', 'picsum.photos', 'cloudflare-ipfs.com']
+	},
+	async rewrites() {
+		return [
+			{
+				source: '/uploads/:path*',
+				destination: 'http://localhost:4200/uploads/:path*'
+			}
+		]
 	}
 }
 
