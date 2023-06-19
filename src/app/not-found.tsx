@@ -1,7 +1,8 @@
 import Link from 'next/link'
 
 import Heading from '../components/ui/heading/Heading'
-import Layout from '../components/ui/layout/Layout'
+
+import Layout from './layout/Layout'
 
 export default function NotFound() {
 	return (

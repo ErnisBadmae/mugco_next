@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 
 import Catalog from '../../../components/ui/catalog/Catalog'
-import Layout from '../../../components/ui/layout/Layout'
 import { CategoryService } from '../../../services/category/category.service'
 import { ProductService } from '../../../services/product/product.service'
 import { IPageSlugParam, TypeParamSlug } from '../../../types/page-params'
+import Layout from '../../layout/Layout'
 
 export const revalidate = 60
 

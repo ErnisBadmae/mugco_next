@@ -1,12 +1,11 @@
-'use client'
-
 import { FC } from 'react'
 
 import CatalogPagination from '../components/ui/catalog/CatalogPagination'
-import Layout from '../components/ui/layout/Layout'
 import { useActions } from '../hooks/useActions'
 import { useAuth } from '../hooks/useAuth'
 import { TypePaginationProducts } from '../types/product.interface'
+
+import Layout from './layout/Layout'
 
 const Home: FC<TypePaginationProducts> = ({ products, length }) => {
 	const { user } = useAuth()

@@ -1,9 +1,9 @@
 import { FC } from 'react'
 import { AiFillMinusCircle } from 'react-icons/ai'
 
-import { useActions } from '../../../../../../hooks/useActions'
-import { useCart } from '../../../../../../hooks/useCart'
-import { ICartItem } from '../../../../../../types/cart.interface'
+import { useActions } from '../../../../../hooks/useActions'
+import { useCart } from '../../../../../hooks/useCart'
+import { ICartItem } from '../../../../../types/cart.interface'
 
 const CartActions: FC<{ item: ICartItem }> = ({ item }) => {
 	const { removeFromCart, changeQuantity } = useActions()

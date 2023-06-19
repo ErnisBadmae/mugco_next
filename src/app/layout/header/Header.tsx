@@ -3,9 +3,8 @@ import Link from 'next/link'
 import { FC, PropsWithChildren } from 'react'
 import { AiOutlineHeart } from 'react-icons/ai'
 
-import SearchPage from '../../../../../pages/q'
-
 import HeaderProfile from './HeaderProfile'
+import Search from './Search'
 import HeaderCart from './cart/cart-item/HeaderCart'
 
 const Header: FC<PropsWithChildren<unknown>> = () => {
@@ -17,7 +16,8 @@ const Header: FC<PropsWithChildren<unknown>> = () => {
 			<Link href='/'>
 				<Image priority width={180} height={37} src='/favicon.png' alt='' />
 			</Link>
-			{/* <SearchPage /> */}
+
+			<Search />
 			<div className='flex items-center justify-end gap-10'>
 				<Link href='/favorites' className='text-white'>
 					<AiOutlineHeart size={28} />

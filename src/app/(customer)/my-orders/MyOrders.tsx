@@ -3,9 +3,9 @@
 import { useQuery } from '@tanstack/react-query'
 
 import Heading from '../../../components/ui/heading/Heading'
-import Layout from '../../../components/ui/layout/Layout'
 import { OrderService } from '../../../services/order/order.service'
 import { convertPrice } from '../../../utils/convertPrice'
+import Layout from '../../layout/Layout'
 
 export default function MyOrders() {
 	const { data: orders } = useQuery(

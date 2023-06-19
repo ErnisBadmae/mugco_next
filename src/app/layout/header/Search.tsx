@@ -1,3 +1,5 @@
+'use client'
+
 import { useRouter } from 'next/navigation'
 import { FC, useState } from 'react'
 import { BsSearch } from 'react-icons/bs'

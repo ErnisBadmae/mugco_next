@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import { FC } from 'react'
 
-import { ICartItem } from '../../../../../../types/cart.interface'
-import { convertPrice } from '../../../../../../utils/convertPrice'
+import { ICartItem } from '../../../../../types/cart.interface'
+import { convertPrice } from '../../../../../utils/convertPrice'
 import CartActions from '../cart-actions/CartActions'
 
 const CartItem: FC<{ item: ICartItem }> = ({ item }) => {

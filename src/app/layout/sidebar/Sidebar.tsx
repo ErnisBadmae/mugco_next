@@ -6,10 +6,10 @@ import { useRouter } from 'next/router'
 import { FC, PropsWithChildren } from 'react'
 import { RiLogoutCircleFill } from 'react-icons/ri'
 
-import { useActions } from '../../../../hooks/useActions'
-import { useAuth } from '../../../../hooks/useAuth'
-import { CategoryService } from '../../../../services/category/category.service'
-import Loader from '../../loader/Loader'
+import Loader from '../../../components/ui/loader/Loader'
+import { useActions } from '../../../hooks/useActions'
+import { useAuth } from '../../../hooks/useAuth'
+import { CategoryService } from '../../../services/category/category.service'
 
 const Sidebar: FC<PropsWithChildren<unknown>> = () => {
 	const { data, isLoading } = useQuery(

@@ -1,8 +1,8 @@
 'use client'
 
 import Catalog from '../../../components/ui/catalog/Catalog'
-import Layout from '../../../components/ui/layout/Layout'
 import { useProfile } from '../../../hooks/useProfile'
+import Layout from '../../layout/Layout'
 
 export default function () {
 	const { profile } = useProfile()
