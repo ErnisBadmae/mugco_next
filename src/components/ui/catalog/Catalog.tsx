@@ -3,22 +3,34 @@
 import { FC } from 'react'
 
 import { IProduct } from '../../../types/product.interface'
+import Heading from '../heading/Heading'
+import Loader from '../loader/Loader'
 
 import ProductItem from './product-item/ProductItem'
 
-const Catalog: FC<{ products: IProduct[]; title: string }> = ({
-	products,
-	title
-}) => {
+interface ICatalog {
+	products: IProduct[]
+	isLoading?: boolean
+	title?: string
+	isPagination?: boolean
+}
+
+const Catalog: FC<ICatalog> = ({ products, title, isLoading }) => {
+	if (isLoading) return <Loader />
+
 	return (
 		<section>
-			{title}
+			{title && <Heading className='mb-5'>{title}</Heading>}
 			{products.length ? (
-				products.map((product: IProduct) => (
-					<ProductItem product={product} key={product.id} />
-				))
+				<>
+					<div className='grid grid-cols-4 gap-10'>
+						{products.map(product => (
+							<ProductItem key={product.id} product={product} />
+						))}
+					</div>
+				</>
 			) : (
-				<div>Thera are no products</div>
+				<div> There are no product</div>
 			)}
 		</section>
 	)

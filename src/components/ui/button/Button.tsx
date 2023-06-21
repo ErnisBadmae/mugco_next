@@ -16,12 +16,12 @@ const Button: FC<PropsWithChildren<IButton>> = ({
 		<button
 			{...rest}
 			className={cn(
-				'rounded-xl font-medium shadow px-10 py-2 hover:shadow-lg transition duration-300 ease-in-out',
+				'btn',
 				{
-					'text-white bg-primary': variant === 'orange',
-					'text-primary bg-white': variant === 'white',
+					'btn-white': variant === 'orange',
+					'btn-orange': variant === 'white',
 					'px-5 py-1 text-sm': size === 'sma',
-					'px-10 py-2 text-base': size === 'md'
+					'btn-large': size === 'lg'
 				},
 				className
 			)}
