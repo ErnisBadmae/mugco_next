@@ -5,7 +5,6 @@ import { useQuery } from '@tanstack/react-query'
 import Heading from '../../../components/ui/heading/Heading'
 import { OrderService } from '../../../services/order/order.service'
 import { convertPrice } from '../../../utils/convertPrice'
-import Layout from '../../layout/Layout'
 
 export default function MyOrders() {
 	const { data: orders } = useQuery(
@@ -16,7 +15,7 @@ export default function MyOrders() {
 		}
 	)
 	return (
-		<Layout>
+		<>
 			<Heading> My order</Heading>
 
 			<section>
@@ -39,6 +38,6 @@ export default function MyOrders() {
 					<div>Order not</div>
 				)}
 			</section>
-		</Layout>
+		</>
 	)
 }

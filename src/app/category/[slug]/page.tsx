@@ -4,7 +4,6 @@ import Catalog from '../../../components/ui/catalog/Catalog'
 import { CategoryService } from '../../../services/category/category.service'
 import { ProductService } from '../../../services/product/product.service'
 import { IPageSlugParam, TypeParamSlug } from '../../../types/page-params'
-import Layout from '../../layout/Layout'
 
 export const revalidate = 60
 
@@ -53,8 +52,8 @@ async function getProducts(params: TypeParamSlug) {
 export default async function CategoryPage({ params }: IPageSlugParam) {
 	const data = await getProducts(params)
 	return (
-		<Layout>
+		<>
 			<Catalog products={data.products || []} title={data.category.name} />
-		</Layout>
+		</>
 	)
 }

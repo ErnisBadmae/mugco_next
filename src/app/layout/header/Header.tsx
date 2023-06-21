@@ -14,7 +14,7 @@ const Header: FC<PropsWithChildren<unknown>> = () => {
 			style={{ gridTemplateColumns: '1fr 3fr 1.2fr' }}
 		>
 			<Link href='/'>
-				<Image priority width={180} height={37} src='/favicon.png' alt='' />
+				<Image priority width={180} height={37} src='' alt='' />
 			</Link>
 
 			<Search />

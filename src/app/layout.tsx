@@ -11,7 +11,7 @@ import '@/assets/styles/globals.scss'
 
 export const metadata: Metadata = {
 	icons: {
-		icon: '/favicon.png'
+		// icon: '/favicon.png'
 	},
 	title: {
 		absolute: SITE_NAME,

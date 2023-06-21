@@ -1,8 +1,11 @@
-// 'use client'
+'use client'
+
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { PropsWithChildren } from 'react'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
+
+import { persistor, store } from '../store/store'
 
 import AuthProvider from './auth-provider/AuthProvider'
 

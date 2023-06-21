@@ -2,6 +2,7 @@
 
 import { useQuery } from '@tanstack/react-query'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useRouter } from 'next/router'
 import { FC, PropsWithChildren } from 'react'
 import { RiLogoutCircleFill } from 'react-icons/ri'
@@ -20,7 +21,7 @@ const Sidebar: FC<PropsWithChildren<unknown>> = () => {
 		}
 	)
 
-	const { asPath } = useRouter()
+	const pathname = usePathname()
 	const { user } = useAuth()
 	const { logout } = useActions()
 
@@ -43,7 +44,7 @@ const Sidebar: FC<PropsWithChildren<unknown>> = () => {
 									<Link href={`/category/${category.slug}`}>
 										<a
 											className={
-												asPath === `/category/${category.slug}`
+												pathname === `/category/${category.slug}`
 													? 'text-primary'
 													: 'text-white'
 											}
