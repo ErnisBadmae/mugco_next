@@ -1,9 +1,16 @@
+'use client'
+
 import { FC, useState } from 'react'
 import { Rating } from 'react-simple-star-rating'
 
 import { IProduct } from '../../../../types/product.interface'
 
-const ProductRating: FC<{ product: IProduct }> = ({ product }) => {
+interface IProductRating {
+	product: IProduct
+	isText?: boolean
+}
+
+const ProductRating: FC<IProductRating> = ({ product, isText = false }) => {
 	const [rating, _] = useState<number>(
 		product.reviews.length > 0
 			? Math.round(
@@ -30,7 +37,9 @@ const ProductRating: FC<{ product: IProduct }> = ({ product }) => {
 					</span>
 				</span>
 			)}
-			<span className='text-sm'>{product.reviews.length} reviews</span>
+			{isText && (
+				<span className='text-sm'>{product.reviews.length} reviews</span>
+			)}
 		</div>
 	)
 }

@@ -25,6 +25,11 @@ module.exports = {
 			animation: {
 				'scale-in': 'scaleIn 1s ease-in-out',
 				'opacity-animation': 'animationOpacity 1s ease-in-out'
+			},
+			zIndex: {
+				1: 1,
+				2: 2,
+				3: 3
 			}
 		},
 		keyframes: {
