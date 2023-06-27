@@ -9,6 +9,16 @@ import Header from './layout/header/Header'
 import Sidebar from './layout/sidebar/Sidebar'
 import '@/assets/styles/globals.scss'
 
+import { Golos_Text } from 'next/font/google'
+
+const golos = Golos_Text({
+	weight: '400',
+	subsets: ['latin', 'cyrillic-ext'],
+	display: 'swap',
+	style: ['normal'],
+	variable: '--font-golos'
+})
+
 export const metadata: Metadata = {
 	icons: {
 		// icon: '/favicon.png'
@@ -27,20 +37,21 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: PropsWithChildren<unknown>) {
 	return (
-		<html lang='en'>
+		<html lang='en' className={golos.variable}>
 			<body>
 				<Providers>
-					{' '}
-					<div>
+					<div className='bg-secondary'>
 						<Header />
 						<div
 							className='grid'
 							style={{
-								gridTemplateColumns: '1fr 4fr'
+								gridTemplateColumns: '.7fr 4fr'
 							}}
 						>
 							<Sidebar />
-							<main className='p-12'>{children}</main>
+							<main className='rounded-tl-lg bg-bg-color p-12 pb-52'>
+								{children}
+							</main>
 						</div>
 					</div>
 				</Providers>
