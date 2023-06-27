@@ -1,35 +1,32 @@
 'use client'
 
-import { useQuery } from '@tanstack/react-query'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { useRouter } from 'next/router'
+
 import { FC, PropsWithChildren } from 'react'
 import { RiLogoutCircleFill } from 'react-icons/ri'
 
 import Loader from '../../../components/ui/loader/Loader'
 import { useActions } from '../../../hooks/useActions'
 import { useAuth } from '../../../hooks/useAuth'
-import { CategoryService } from '../../../services/category/category.service'
+
+import { useIsAdminPanel } from '../../../hooks/useIsAdminPanel'
+import { useCategories } from '../../../hooks/qureies/useCategories'
+import { ADMIN_MENU } from './admin.menu'
+import { convertToMenuItems } from './conver-to-menu-items'
 
 const Sidebar: FC<PropsWithChildren<unknown>> = () => {
-	const { data, isLoading } = useQuery(
-		['get categories'],
-		() => CategoryService.getAll(),
-		{
-			select: ({ data }) => data
-		}
-	)
-
-	const pathname = usePathname()
 	const { user } = useAuth()
 	const { logout } = useActions()
+	const { data, isLoading } = useCategories()
+
+	const { isAdminPanel, pathname } = useIsAdminPanel()
 
 	return (
 		<aside
-			className='flex flex-col justify-between bg-secondary'
+			className='z-10 flex flex-col justify-between bg-secondary'
 			style={{
-				height: 'calc(100vh - 91px)'
+				height: 'calc(100vh - 91px)',
+				minHeight: 'calc(100% - 91px)'
 			}}
 		>
 			<div>
@@ -37,23 +34,27 @@ const Sidebar: FC<PropsWithChildren<unknown>> = () => {
 					<Loader />
 				) : data ? (
 					<>
-						<div className='text-xl text-white mt-4 mb-6 ml-6'>Categories:</div>
+						<div className='mb-6 ml-6 mt-4 text-xl text-white'>
+							{isAdminPanel ? 'Menu: ' : 'Categories: '}
+						</div>
 						<ul>
-							{data.map(category => (
-								<li key={category.id}>
-									<Link href={`/category/${category.slug}`}>
-										<a
-											className={
-												pathname === `/category/${category.slug}`
-													? 'text-primary'
-													: 'text-white'
-											}
-										>
-											{category.name}
-										</a>
-									</Link>
-								</li>
-							))}
+							{(isAdminPanel ? ADMIN_MENU : convertToMenuItems(data)).map(
+								item => (
+									<li key={item.href}>
+										<Link href={item.href}>
+											<a
+												className={
+													pathname === `/category/${item.href}`
+														? 'text-primary'
+														: 'text-white'
+												}
+											>
+												{item.label}
+											</a>
+										</Link>
+									</li>
+								)
+							)}
 						</ul>
 					</>
 				) : (
@@ -63,7 +64,7 @@ const Sidebar: FC<PropsWithChildren<unknown>> = () => {
 
 			{!!user && (
 				<button
-					className='text-white flex items-center ml-10 mb-10'
+					className='mb-10 ml-10 flex items-center text-white'
 					onClick={() => logout()}
 				>
 					<RiLogoutCircleFill />

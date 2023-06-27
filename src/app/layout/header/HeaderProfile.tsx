@@ -5,6 +5,9 @@ import { FC } from 'react'
 
 import { useOutside } from '../../../hooks/useOutside'
 import { useProfile } from '../../../hooks/useProfile'
+import Link from 'next/link'
+
+
 
 const HeaderProfile: FC = () => {
 	const { profile } = useProfile()
@@ -25,7 +28,13 @@ const HeaderProfile: FC = () => {
 				/>
 			</button>
 			{isShow && (
-				
+				<div className='absolute w-40 right-2 z-20' style={{top:'calc(100% + 1rem)'}}
+				>
+			<Link href='/my-orders' className='bg-white shadow py-2 block w-full rounded-md hover:text-primary duration-300 transition-colors'>
+				My orders
+				</Link>
+		</div>
+
 			)}
 		</div>
 	)
