@@ -1,7 +1,10 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { FC, PropsWithChildren } from 'react'
 import { AiOutlineHeart } from 'react-icons/ai'
+import { MdOutlineAdminPanelSettings } from 'react-icons/md'
 
 import { useAuth } from '../../../hooks/useAuth'
 import { useIsAdminPanel } from '../../../hooks/useIsAdminPanel'
@@ -29,6 +32,14 @@ const Header: FC<PropsWithChildren<unknown>> = () => {
 
 			<Search />
 			<div className='flex items-center justify-end gap-10'>
+				{user?.isAdmin && !isAdminPanel && (
+					<Link
+						href='/admin'
+						className='hover:text-primary transition-colors duration-200 text-white inline-block text-lg'
+					>
+						<MdOutlineAdminPanelSettings size={29} />
+					</Link>
+				)}
 				<Link href='/favorites' className='text-white'>
 					<AiOutlineHeart size={28} />
 				</Link>
