@@ -11,12 +11,13 @@ import {
 
 import { cartSlice } from './slices/cartSlice'
 import { userSlice } from './user/user.slice'
+import { carouselSlice } from './carousel/carousel.slice'
 
 const isClient = typeof window !== 'undefined'
 
 const combinedReducers = combineReducers({
 	cart: cartSlice.reducer,
-	// carousel: carouselSlice.reducer,
+	carousel: carouselSlice.reducer,
 	user: userSlice.reducer
 })
 
