@@ -2,12 +2,12 @@ import { FC } from 'react'
 import { ICarouselItem } from './carousel.interface'
 import { useTypedSelector } from '../../hooks/useTypedSelector'
 import CarouselNavigation from './Carousel.navigation'
-import cn from 'clsx'
 import { TransitionGroup } from 'react-transition-group'
 import CSSTransition from '../ui/CSSTransition'
 import styles from './Carousel.module.scss'
 import Link from 'next/link'
 
+import cn from 'clsx'
 interface ICarouselProps {
 	items: ICarouselItem[]
 	className?: string
